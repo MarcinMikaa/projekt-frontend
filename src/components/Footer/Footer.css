@@ -1,0 +1,28 @@
+.footer {
+  background-image: linear-gradient(
+    to bottom left,
+    rgb(61, 61, 61),
+    rgb(59, 59, 59),
+    rgb(56, 56, 56),
+    rgb(54, 54, 54),
+    rgb(52, 52, 52),
+    rgb(50, 50, 50),
+    rgb(47, 47, 47),
+    rgb(45, 45, 45),
+    rgb(43, 43, 43),
+    rgb(41, 41, 41),
+    rgb(38, 38, 38),
+    rgb(36, 36, 36)
+  );
+  padding: 15px;
+}
+
+.footer .row-left {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer .row-right {
+  display: flex;
+}
