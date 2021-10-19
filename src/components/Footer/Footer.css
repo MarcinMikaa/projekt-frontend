@@ -1,28 +1,24 @@
 .footer {
-  background-image: linear-gradient(
-    to bottom left,
-    rgb(61, 61, 61),
-    rgb(59, 59, 59),
-    rgb(56, 56, 56),
-    rgb(54, 54, 54),
-    rgb(52, 52, 52),
-    rgb(50, 50, 50),
-    rgb(47, 47, 47),
-    rgb(45, 45, 45),
-    rgb(43, 43, 43),
-    rgb(41, 41, 41),
-    rgb(38, 38, 38),
-    rgb(36, 36, 36)
-  );
+  background-color: rgb(44, 44, 44);
   padding: 15px;
+  padding: 4vh 5vw;
 }
 
-.footer .row-left {
-  width: 50%;
+.rows {
+  color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.footer .row-right {
-  display: flex;
+.flex-column p {
+  color: white;
+}
+
+.footer-link p {
+  color: white;
+}
+
+.copyrights p {
+  color: rgb(182, 182, 182);
+  margin: 0;
 }
