@@ -4,10 +4,10 @@
   padding: 4vh 5vw;
 }
 
-.rows {
+.row {
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .flex-column p {
