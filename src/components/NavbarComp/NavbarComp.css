@@ -1,0 +1,22 @@
+.navbar-comp {
+  background-color: rgb(44, 44, 44);
+}
+
+.navabr {
+  border-bottom: 2px solid rgb(145, 145, 145);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link p {
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  padding-right: 30px;
+  font-size: x-large;
+  color: black;
+  margin: 0;
+}

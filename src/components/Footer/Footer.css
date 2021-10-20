@@ -1,0 +1,24 @@
+.footer {
+  background-color: rgb(44, 44, 44);
+  padding: 15px;
+  padding: 4vh 5vw;
+}
+
+.row {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-column p {
+  color: white;
+}
+
+.footer-link p {
+  color: white;
+}
+
+.copyrights p {
+  color: rgb(182, 182, 182);
+  margin: 0;
+}

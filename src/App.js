@@ -14,8 +14,8 @@ function App() {
         <NavbarComp />
         <Switch>
           <Route path="/" exact component={MainPage} />
-          <Route path="/register" exact component={RegisterPage} />
-          <Route path="/login" exact component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
+          <Route path="/login" component={LoginPage} />
         </Switch>
         <Footer />
       </div>
