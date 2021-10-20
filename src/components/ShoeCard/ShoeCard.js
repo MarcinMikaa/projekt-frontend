@@ -1,18 +1,14 @@
 import "./ShoeCard.css";
 import { Col, Card } from "react-bootstrap";
-import yeezy from "../../images/yeezy-cloud-white.png";
 
-function ShoeCard() {
+function ShoeCard({ url, brand, model }) {
   return (
     <Col>
       <Card>
-        <Card.Img variant="top" src={yeezy} />
+        <Card.Img variant="top" src={url} />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a longer card with supporting text below as a natural lead-in to additional content. This content is
-            a little bit longer.
-          </Card.Text>
+          <Card.Title>{brand}</Card.Title>
+          <Card.Text>{model}</Card.Text>
         </Card.Body>
       </Card>
     </Col>
