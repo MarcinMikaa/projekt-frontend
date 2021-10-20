@@ -1,4 +1,5 @@
 import "./MainPage.css";
+import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import ShoeCard from "../../components/ShoeCard/ShoeCard";
@@ -8,6 +9,7 @@ function MainPage() {
 
   useEffect(() => {
     fetch("http://localhost:4000/shoes")
+
       .then((response) => response.json())
       .then((data) => {
         setShoes(data);
