@@ -18,6 +18,14 @@
   color: white;
 }
 
+.contact p {
+  cursor: pointer;
+}
+
+.d-inline-block {
+  max-width: 90%;
+}
+
 .copyrights p {
   color: rgb(209, 205, 205);
   padding-left: 24px;

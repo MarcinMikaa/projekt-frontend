@@ -3,7 +3,7 @@
 }
 
 .navabr {
-  border-bottom: 2px solid rgb(145, 145, 145);
+  border-bottom: 2px solid rgb(163, 163, 163);
 }
 
 .nav-link {
@@ -15,8 +15,13 @@
   align-items: center;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
-  padding-right: 30px;
+  font-size: 1.2em !important;
+  margin-right: 30px;
   font-size: x-large;
-  color: black;
+  color: rgb(0, 0, 0);
   margin: 0;
+}
+
+.nav-link p:hover {
+  border-bottom: 3px solid rgb(0, 0, 0);
 }
