@@ -1,7 +1,9 @@
 import "./MainPage.css";
 import { useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Image, Button } from "react-bootstrap";
 import ShoeCard from "../../components/ShoeCard/ShoeCard";
+import baner from "../../images/baner.jpg";
+import { Link } from "react-router-dom";
 
 function MainPage() {
   const [shoes, setShoes] = useState([]);
@@ -17,14 +19,25 @@ function MainPage() {
 
   return (
     <div className="main-page">
-      <h1>INCOMING DROPS</h1>
+      <div className="main-page-baner position-relative">
+        <Image src={baner} alt="baner-image" fluid />
+        <div className="baner-mask">
+          <div className="baner-box">
+            <h1>JOIN TO US!</h1>
+            <Button>Sign Up</Button>
+          </div>
+        </div>
+      </div>
 
       <Container className="main-page-container">
-        <Row xs={1} md={2} className="g-4">
+        <h1>INCOMING DROPS</h1>
+        <Row xs={1} md={2} lg={3} className="g-3">
           {shoes.map((shoes) => (
-            <div key={shoes._id}>
-              <ShoeCard key={shoes._id} url={shoes.url} brand={shoes.brand} model={shoes.model} />
-            </div>
+            <Link as={Link} to={`/ShoeDetial/${shoes._id}`}>
+              <div key={shoes._id}>
+                <ShoeCard key={shoes._id} url={shoes.url} brand={shoes.brand} model={shoes.model} price={shoes.price} />
+              </div>
+            </Link>
           ))}
           )
         </Row>

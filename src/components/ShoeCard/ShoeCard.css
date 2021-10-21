@@ -7,9 +7,9 @@
 }
 
 .card img {
-  max-height: 320px;
+  height: 300px;
 }
 
 .card:hover {
-  box-shadow: 0 0 20px rgb(157, 157, 157);
+  box-shadow: 0 0 15px rgb(157, 157, 157);
 }
