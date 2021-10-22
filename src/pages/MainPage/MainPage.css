@@ -58,3 +58,8 @@
 .main-page-container {
   padding-top: 10vh;
 }
+
+.main-page-container h1 {
+  padding: 30px;
+  font-weight: 700;
+}

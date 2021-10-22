@@ -13,14 +13,14 @@ function Footer() {
               <Nav.Link as={Link} to="/">
                 <p>Home Page</p>
               </Nav.Link>
-              <Nav.Link as={Link} to="/favorite" className="footer-link">
-                <p>Favorite</p>
+              <Nav.Link as={Link} to="/add">
+                <p>Add</p>
               </Nav.Link>
-              <Nav.Link as={Link} to="/login" className="footer-link">
-                <p>Login</p>
-              </Nav.Link>
-              <Nav.Link as={Link} to="/register" className="footer-link">
+              <Nav.Link as={Link} to="/register">
                 <p>Register</p>
+              </Nav.Link>
+              <Nav.Link as={Link} to="/login">
+                <p>Login</p>
               </Nav.Link>
             </Nav>
           </Col>
@@ -31,13 +31,15 @@ function Footer() {
             </div>
           </Col>
           <Col md="4">
-            <img src={logo} className="d-inline-block align-top" alt="Logo" />
+            <div className="footer-image">
+              <img src={logo} className="d-inline-block align-top" alt="Logo" />
+            </div>
           </Col>
         </Row>
+        <div className="copyrights">
+          <p>Copyright © Sneakers Release 2021</p>
+        </div>
       </Container>
-      <div className="copyrights">
-        <p>Copyright © Sneakers Release 2021</p>
-      </div>
     </div>
   );
 }

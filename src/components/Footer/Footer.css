@@ -14,10 +14,6 @@
   color: white;
 }
 
-.footer-link p {
-  color: white;
-}
-
 .contact p {
   cursor: pointer;
 }
@@ -30,4 +26,19 @@
   color: rgb(209, 205, 205);
   padding-left: 24px;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer .nav-link {
+    justify-content: center;
+  }
+
+  .contact {
+    padding-top: 30px;
+    text-align: center;
+  }
+
+  .footer-image {
+    text-align: center;
+  }
 }

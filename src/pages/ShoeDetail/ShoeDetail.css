@@ -1,4 +1,52 @@
 .shoe-detail {
-  margin-top: 10vh;
-  height: 90vh;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  margin-top: 15vh;
+  height: 85vh;
+}
+
+.shoe-detail .card {
+  padding: 3%;
+}
+
+.shoe-detail img {
+  max-width: 900px;
+  width: 100%;
+}
+
+.shoe-detail .card-title {
+  font-size: 2em;
+  color: black;
+}
+
+.shoe-detail .card-text {
+  font-size: 1.2em;
+  color: black;
+}
+
+.shoe-detail .shop-button {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(47, 0, 140),
+    rgb(65, 0, 145),
+    rgb(83, 0, 150),
+    rgb(101, 0, 155),
+    rgb(119, 0, 160),
+    rgb(137, 0, 165),
+    rgb(155, 0, 171),
+    rgb(173, 0, 176),
+    rgb(191, 0, 181),
+    rgb(209, 0, 186),
+    rgb(227, 0, 191),
+    rgb(245, 0, 196)
+  );
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 12px 40px;
+  border: 0;
+}
+
+.shoe-detail .shop-button:hover {
+  box-shadow: 0 0 10px rgb(196, 79, 255);
 }
