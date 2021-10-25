@@ -7,7 +7,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ShoeDetail from "./pages/ShoeDetail/ShoeDetail";
-import AddPage from "./pages/AddPage/AddPage";
+import ActionPage from "./pages/ActionPage/ActionPage";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <NavbarComp />
         <Switch>
           <Route path="/" exact component={MainPage} />
-          <Route path="/add" component={AddPage} />
+          <Route path="/action" component={ActionPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/shoe/:id" exact component={ShoeDetail} />
