@@ -37,7 +37,13 @@ function MainPage() {
           {shoes.map((shoes) => (
             <Link key={shoes._id} as={Link} to={`/shoe/${shoes._id}`}>
               <div key={shoes._id}>
-                <ShoeCard key={shoes._id} url={shoes.url} brand={shoes.brand} model={shoes.model} price={shoes.price} />
+                <ShoeCard
+                  key={shoes._id}
+                  url={shoes.url}
+                  resell={shoes.resell}
+                  model={shoes.model}
+                  price={shoes.price}
+                />
               </div>
             </Link>
           ))}
