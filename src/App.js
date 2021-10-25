@@ -6,6 +6,8 @@ import Footer from "./components/Footer/Footer";
 import MainPage from "./pages/MainPage/MainPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ShoeDetail from "./pages/ShoeDetail/ShoeDetail";
+import ActionPage from "./pages/ActionPage/ActionPage";
 
 function App() {
   return (
@@ -14,8 +16,10 @@ function App() {
         <NavbarComp />
         <Switch>
           <Route path="/" exact component={MainPage} />
+          <Route path="/action" component={ActionPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/shoe/:id" exact component={ShoeDetail} />
         </Switch>
         <Footer />
       </div>

@@ -22,6 +22,6 @@
   margin: 0;
 }
 
-.nav-link p:hover {
+.navbar-comp .nav-link p:hover {
   border-bottom: 3px solid rgb(0, 0, 0);
 }

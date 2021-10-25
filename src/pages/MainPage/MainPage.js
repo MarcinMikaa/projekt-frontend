@@ -9,7 +9,7 @@ function MainPage() {
   const [shoes, setShoes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/shoes")
+    fetch("http://localhost:4000/")
       .then((response) => response.json())
       .then((data) => {
         setShoes(data);
@@ -24,7 +24,9 @@ function MainPage() {
         <div className="baner-mask">
           <div className="baner-box">
             <h1>JOIN TO US!</h1>
-            <Button>Sign Up</Button>
+            <Link as={Link} to="/register">
+              <Button>Register</Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -33,7 +35,7 @@ function MainPage() {
         <h1>INCOMING DROPS</h1>
         <Row xs={1} md={2} lg={3} className="g-3">
           {shoes.map((shoes) => (
-            <Link as={Link} to={`/ShoeDetial/${shoes._id}`}>
+            <Link key={shoes._id} as={Link} to={`/shoe/${shoes._id}`}>
               <div key={shoes._id}>
                 <ShoeCard key={shoes._id} url={shoes.url} brand={shoes.brand} model={shoes.model} price={shoes.price} />
               </div>
