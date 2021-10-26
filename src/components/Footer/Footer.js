@@ -13,15 +13,28 @@ function Footer() {
               <Nav.Link as={Link} to="/">
                 <p>Home Page</p>
               </Nav.Link>
-              <Nav.Link as={Link} to="/register">
-                <p>Register</p>
-              </Nav.Link>
-              <Nav.Link as={Link} to="/login">
-                <p>Login</p>
-              </Nav.Link>
-              <Nav.Link as={Link} to="/action">
-                <p>Action</p>
-              </Nav.Link>
+              {localStorage.getItem("token") ? (
+                <>
+                  <Nav.Link as={Link} to="/favorite">
+                    <p>Favorite</p>
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/add">
+                    <p>Add Shoe</p>
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/update">
+                    <p>Update Shoe</p>
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link as={Link} to="/register">
+                    <p>Register</p>
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/login">
+                    <p>Login</p>
+                  </Nav.Link>
+                </>
+              )}
             </Nav>
           </Col>
           <Col md="4">

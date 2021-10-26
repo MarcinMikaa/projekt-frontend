@@ -1,9 +1,11 @@
 import "./RegisterPage.css";
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 function RegisterPage() {
+  const history = useHistory();
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -18,7 +20,12 @@ function RegisterPage() {
       },
       withCredentials: true,
       url: "http://localhost:4000/register",
-    }).then((res) => console.log(res));
+    }).then((res) => {
+      console.log(res);
+      if (res.data === "User Created") {
+        history.push("/login");
+      }
+    });
   };
 
   return (

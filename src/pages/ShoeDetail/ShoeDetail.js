@@ -27,8 +27,17 @@ function ShoeDetail() {
             <Col>
               <Card.Body>
                 <Card.Title>{shoeDetail.model}</Card.Title>
-                <Card.Text>{shoeDetail.data}</Card.Text>
+                <Card.Text>{shoeDetail.date}</Card.Text>
                 <Card.Text>{shoeDetail.price} EUR</Card.Text>
+                <Card.Text>
+                  {(() => {
+                    if (shoeDetail.resell === 2) {
+                      return <p>Wartość odsprzedaży jest bardzo wysoka.</p>;
+                    } else if (shoeDetail.resell === 1) {
+                      return <p>Wartość odsprzedaży jest wysoka.</p>;
+                    }
+                  })()}
+                </Card.Text>
                 <Button href="https://www.nike.com/pl/launch" target="_blank" className="shop-button">
                   Shop
                 </Button>
