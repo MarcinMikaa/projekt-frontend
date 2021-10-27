@@ -10,14 +10,15 @@ const Authentication = () => {
       withCredentials: true,
       url: "http://localhost:4000/user",
     }).then((res) => {
-      if (res.data === null) {
+      history.push("/");
+      if (res.data.username === undefined) {
         history.push("/");
       } else {
         console.log(res.data);
       }
     });
   };
-  console.log("qwe");
+  console.warn("qwe");
 
   UserAuth();
 };

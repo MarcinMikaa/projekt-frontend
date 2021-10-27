@@ -20,8 +20,8 @@ function LoginPage() {
       url: "http://localhost:4000/login",
     }).then((res) => {
       console.log(res.data);
-      if (res.data === "Successfully Authenticated") {
-        localStorage.setItem("token", res.data);
+      if (res.data._id) {
+        localStorage.setItem("user", JSON.stringify(res.data));
         history.push("/");
       } else {
         console.log(res.data);

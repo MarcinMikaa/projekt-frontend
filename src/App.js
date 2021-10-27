@@ -6,9 +6,8 @@ import Footer from "./components/Footer/Footer";
 import MainPage from "./pages/MainPage/MainPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import ShoeDetail from "./pages/ShoeDetail/ShoeDetail";
+import ShoeDetailPage from "./pages/ShoeDetailPage/ShoeDetailPage";
 import AddPage from "./pages/AddPage/AddPage";
-import UpdatePage from "./pages/UpdatePage/UpdatePage";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
 
 function App() {
@@ -19,11 +18,10 @@ function App() {
         <Switch>
           <Route path="/" exact component={MainPage} />
           <Route path="/add" component={AddPage} />
-          <Route path="/update" component={UpdatePage} />
           <Route path="/favorite" component={FavoritePage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/shoe/:id" exact component={ShoeDetail} />
+          <Route path="/shoe/:id" exact component={ShoeDetailPage} />
         </Switch>
         <Footer />
       </div>

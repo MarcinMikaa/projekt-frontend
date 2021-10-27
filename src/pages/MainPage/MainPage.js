@@ -9,7 +9,7 @@ function MainPage() {
   const [shoes, setShoes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/")
+    fetch("http://localhost:4000/shoes")
       .then((response) => response.json())
       .then((data) => {
         setShoes(data);

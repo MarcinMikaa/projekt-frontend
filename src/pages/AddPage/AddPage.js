@@ -1,12 +1,9 @@
 import "./AddPage.css";
-import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 
 function AddPage() {
-  const history = useHistory();
-
   const [newBrand, setNewBrand] = useState("");
   const [newModel, setNewModel] = useState("");
   const [newDate, setNewDate] = useState("");
@@ -26,7 +23,7 @@ function AddPage() {
         url: newUrl,
       },
       withCredentials: true,
-      url: "http://localhost:4000/action",
+      url: "http://localhost:4000/shoes",
     }).then((res) => console.log(res));
   };
 
