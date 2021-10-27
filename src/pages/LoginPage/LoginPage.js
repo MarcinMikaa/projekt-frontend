@@ -1,9 +1,11 @@
 import "./LoginPage.css";
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 function LoginPage() {
+  const history = useHistory();
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
@@ -17,8 +19,13 @@ function LoginPage() {
       withCredentials: true,
       url: "http://localhost:4000/login",
     }).then((res) => {
-      localStorage.setItem("status", res.data);
-      console.log(localStorage.getItem("status"));
+      console.log(res.data);
+      if (res.data._id) {
+        localStorage.setItem("user", JSON.stringify(res.data));
+        history.push("/");
+      } else {
+        console.log(res.data);
+      }
     });
   };
 

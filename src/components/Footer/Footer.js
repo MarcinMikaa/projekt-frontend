@@ -1,9 +1,29 @@
 import "./Footer.css";
 import logo from "../../images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Nav, Container, Row, Col } from "react-bootstrap";
+import AnonymousUserNav from "../AnonymousUserNav/AnonymousUserNav";
+import LoggedUserNav from "../LoggedUserNav/LoggedUserNav";
+import axios from "axios";
 
 function Footer() {
+  const history = useHistory();
+
+  const logout = () => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:4000/logout",
+    }).then((res) => {
+      localStorage.clear();
+      history.push("/");
+      console.log(res);
+    });
+  };
+
+  const isLoggedUser = localStorage.getItem("token");
+  const isAdmin = localStorage.getItem("role");
+
   return (
     <div className="footer">
       <Container className="footer-container">
@@ -13,15 +33,11 @@ function Footer() {
               <Nav.Link as={Link} to="/">
                 <p>Home Page</p>
               </Nav.Link>
-              <Nav.Link as={Link} to="/register">
-                <p>Register</p>
-              </Nav.Link>
-              <Nav.Link as={Link} to="/login">
-                <p>Login</p>
-              </Nav.Link>
-              <Nav.Link as={Link} to="/action">
-                <p>Action</p>
-              </Nav.Link>
+              {isLoggedUser === "Successfully Authenticated" ? (
+                <LoggedUserNav logout={logout} isAdmin={isAdmin} />
+              ) : (
+                <AnonymousUserNav />
+              )}
             </Nav>
           </Col>
           <Col md="4">
