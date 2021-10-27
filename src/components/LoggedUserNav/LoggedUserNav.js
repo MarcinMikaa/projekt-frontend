@@ -15,15 +15,12 @@ function LoggedUserNav() {
     }).then((res) => {
       localStorage.setItem("role", res.data.isAdmin);
       localStorage.setItem("username", res.data.username);
-      console.log(localStorage.getItem("role"));
-      console.log(localStorage.getItem("username"));
     });
   });
 
   const logout = () => {
     localStorage.clear();
     history.push("/");
-    console.log("Logout Successfully");
   };
 
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
