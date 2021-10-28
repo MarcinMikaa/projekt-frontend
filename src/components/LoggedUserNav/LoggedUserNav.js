@@ -26,9 +26,7 @@ function LoggedUserNav() {
     }).then((res) => {
       localStorage.clear();
       history.push("/");
-      console.log(res);
       window.location.reload();
-      console.log("dziala");
     });
   };
 

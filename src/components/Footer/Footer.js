@@ -17,7 +17,6 @@ function Footer() {
     }).then((res) => {
       localStorage.clear();
       history.push("/");
-      console.log(res);
     });
   };
 

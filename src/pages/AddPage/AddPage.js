@@ -24,7 +24,7 @@ function AddPage() {
       },
       withCredentials: true,
       url: "http://localhost:4000/shoes",
-    }).then((res) => console.log(res));
+    }).then((res) => {});
   };
 
   return (

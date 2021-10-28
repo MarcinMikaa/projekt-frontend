@@ -14,7 +14,6 @@ function FavoritePage() {
       url: "http://localhost:4000/shoes/favorites",
     }).then((res) => {
       setShoes(res.data);
-      console.log(res.data);
     });
   }, []);
   return (

@@ -7,7 +7,6 @@ import AnonymousUserNav from "../AnonymousUserNav/AnonymousUserNav";
 
 function NavbarComp() {
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
-  console.log(user);
 
   return (
     <div className="navbar-comp">

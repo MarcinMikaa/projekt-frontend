@@ -16,11 +16,8 @@ function MainPage() {
       url: "http://localhost:4000/shoes",
     }).then((res) => {
       setShoes(res.data);
-      console.log(res.data);
     });
   }, []);
-
-  console.log(shoes);
 
   return (
     <div className="main-page">
