@@ -21,8 +21,7 @@ function RegisterPage() {
       withCredentials: true,
       url: "http://localhost:4000/register",
     }).then((res) => {
-      console.log(res);
-      if (res.data === "User Created") {
+      if (res.data.message === "User Created") {
         history.push("/login");
       }
     });

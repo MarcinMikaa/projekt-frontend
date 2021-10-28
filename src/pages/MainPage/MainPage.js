@@ -4,17 +4,19 @@ import { Container, Row, Image, Button } from "react-bootstrap";
 import ShoeCard from "../../components/ShoeCard/ShoeCard";
 import baner from "../../images/baner.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function MainPage() {
   const [shoes, setShoes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/shoes")
-      .then((response) => response.json())
-      .then((data) => {
-        setShoes(data);
-      })
-      .catch((e) => console.error(e));
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:4000/shoes",
+    }).then((res) => {
+      setShoes(res.data);
+    });
   }, []);
 
   return (
@@ -31,21 +33,20 @@ function MainPage() {
         </div>
       </div>
 
-      <Container className="main-page-container">
+      <Container className="page-container">
         <h1>INCOMING DROPS</h1>
         <Row xs={1} md={2} lg={3} className="g-3">
           {shoes.map((shoes) => (
-            <Link key={shoes._id} as={Link} to={`/shoe/${shoes._id}`}>
-              <div key={shoes._id}>
-                <ShoeCard
-                  key={shoes._id}
-                  url={shoes.url}
-                  resell={shoes.resell}
-                  model={shoes.model}
-                  price={shoes.price}
-                />
-              </div>
-            </Link>
+            <div key={shoes._id}>
+              <ShoeCard
+                key={shoes._id}
+                id={shoes._id}
+                url={shoes.url}
+                resell={shoes.resell}
+                model={shoes.model}
+                price={shoes.price}
+              />
+            </div>
           ))}
           )
         </Row>

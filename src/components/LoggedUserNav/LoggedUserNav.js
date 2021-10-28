@@ -19,8 +19,15 @@ function LoggedUserNav() {
   });
 
   const logout = () => {
-    localStorage.clear();
-    history.push("/");
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:4000/logout",
+    }).then((res) => {
+      localStorage.clear();
+      history.push("/");
+      window.location.reload();
+    });
   };
 
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
