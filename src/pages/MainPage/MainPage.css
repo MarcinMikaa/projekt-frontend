@@ -55,11 +55,13 @@
   box-shadow: 0 0 5px rgb(196, 79, 255);
 }
 
-.main-page-container {
+.page-container {
   padding-top: 10vh;
 }
 
-.main-page-container h1 {
+.page-container h1 {
   padding: 30px;
   font-weight: 700;
 }
+
+

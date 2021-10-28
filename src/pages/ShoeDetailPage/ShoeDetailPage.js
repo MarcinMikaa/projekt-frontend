@@ -19,6 +19,12 @@ function ShoeDetailPage() {
       .then((response) => response.json())
       .then((data) => {
         setShoeDetail(data);
+        setUpdateBrand(data.brand);
+        setUpdateModel(data.model);
+        setUpdateDate(data.date);
+        setUpdatePrice(data.price);
+        setUpdateResell(data.resell);
+        setUpdateUrl(data.url);
       })
       .catch((e) => console.error(e));
   }, [id]);
@@ -52,19 +58,19 @@ function ShoeDetailPage() {
             <Col>
               <Card.Body>
                 <Card.Title>{shoeDetail.model}</Card.Title>
-                <Card.Text>{shoeDetail.date}</Card.Text>
+                <Card.Text>Drop date: {shoeDetail.date}</Card.Text>
                 <Card.Text>{shoeDetail.price} EUR</Card.Text>
                 <Card.Text>
                   {(() => {
                     if (shoeDetail.resell === 2) {
-                      return <>Wartość odsprzedaży jest bardzo wysoka.</>;
+                      return <>Resell value is very high.</>;
                     } else if (shoeDetail.resell === 1) {
-                      return <>Wartość odsprzedaży jest wysoka.</>;
+                      return <>Resell value is high</>;
                     }
                   })()}
                 </Card.Text>
                 <Button href="https://www.nike.com/pl/launch" target="_blank" className="shop-button">
-                  Shop
+                  Go to shop
                 </Button>
               </Card.Body>
             </Col>
@@ -75,28 +81,30 @@ function ShoeDetailPage() {
             <h1>Update shoe</h1>
             <Form>
               <Form.Group className="mb-3" controlId="formGroupUsername">
-                <Form.Control type="text" value="qwe" onChange={(e) => setUpdateBrand(e.target.value)} />
+                <Form.Control type="text" value={updateBrand} onChange={(e) => setUpdateBrand(e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupEmail">
-                <Form.Control type="text" placeholder="Model" onChange={(e) => setUpdateModel(e.target.value)} />
+                <Form.Control type="text" value={updateModel} onChange={(e) => setUpdateModel(e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
                 <Form.Control
                   type="date"
-                  placeholder="Date"
+                  value={updateDate}
                   onChange={(e) => setUpdateDate(new Date(e.target.value))}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control type="number" placeholder="Price" onChange={(e) => setUpdatePrice(e.target.value)} />
+                <Form.Control type="number" value={updatePrice} onChange={(e) => setUpdatePrice(e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control type="text" placeholder="Resell" onChange={(e) => setUpdateResell(e.target.value)} />
+                <Form.Control type="text" value={updateResell} onChange={(e) => setUpdateResell(e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control type="text" placeholder="Url" onChange={(e) => setUpdateUrl(e.target.value)} />
+                <Form.Control type="text" value={updateUrl} onChange={(e) => setUpdateUrl(e.target.value)} />
               </Form.Group>
-              <Button onClick={update}>Update</Button>
+              <Button type="submit" onClick={update}>
+                Update
+              </Button>
             </Form>
           </div>
         )}

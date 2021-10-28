@@ -14,12 +14,11 @@
   box-shadow: 0 0 15px rgb(175, 175, 175);
 }
 
-/* .favorite {
-  background-color: rgb(240, 240, 240);
-  border-radius: 90%;
-  text-align: right;
+.decoration {
+  text-decoration: none;
+  color: black;
 }
 
-.card-main .favorite:hover {
-  background-color: rgb(197, 197, 197);
-} */
+.decoration:hover {
+  color: black;
+}
