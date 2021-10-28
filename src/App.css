@@ -1,5 +1,7 @@
-
-
 .btn-primary {
   font-weight: 600 !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
 }

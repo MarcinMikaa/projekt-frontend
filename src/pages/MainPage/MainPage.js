@@ -8,6 +8,7 @@ import axios from "axios";
 
 function MainPage() {
   const [shoes, setShoes] = useState([]);
+  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
 
   useEffect(() => {
     axios({
@@ -25,10 +26,19 @@ function MainPage() {
         <Image src={baner} alt="baner-image" fluid />
         <div className="baner-mask">
           <div className="baner-box">
-            <h1>JOIN TO US!</h1>
-            <Link as={Link} to="/register">
-              <Button>Register</Button>
-            </Link>
+            {user ? (
+              <>
+                <h1>Thank you for</h1>
+                <h1>being with us {user.username}!</h1>
+              </>
+            ) : (
+              <>
+                <h1>JOIN TO US!</h1>
+                <Link as={Link} to="/register">
+                  <Button>Register</Button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -48,7 +58,6 @@ function MainPage() {
               />
             </div>
           ))}
-          )
         </Row>
       </Container>
     </div>

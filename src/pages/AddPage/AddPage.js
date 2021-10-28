@@ -28,7 +28,7 @@ function AddPage() {
   };
 
   return (
-    <div className="action-page">
+    <div className="add-page">
       <div className="form-box">
         <h1>Add new shoe</h1>
         <Form>

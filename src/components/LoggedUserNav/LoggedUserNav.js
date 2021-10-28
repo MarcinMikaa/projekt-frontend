@@ -34,10 +34,10 @@ function LoggedUserNav() {
 
   return (
     <Nav>
-      <Nav.Link as={Link} to="/favorite">
-        <p>Favorite</p>
-      </Nav.Link>
       {user.isAdmin && <AdminNav />}
+      <Nav.Link as={Link} to="/favorites">
+        <p>Favorites</p>
+      </Nav.Link>
       <Nav.Link onClick={logout}>
         <p>Logout</p>
       </Nav.Link>

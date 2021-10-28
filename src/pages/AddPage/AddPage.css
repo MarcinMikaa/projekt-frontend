@@ -1,4 +1,8 @@
-.action-page {
+.add-page {
   margin-top: 10vh;
   text-align: center;
+}
+
+.add-page .form-box {
+  margin: 0 10vw;
 }

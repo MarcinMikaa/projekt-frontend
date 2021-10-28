@@ -1,115 +1,12 @@
 import "./ShoeDetailPage.css";
-import { Card, Container, Row, Col, Button, Form } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import axios from "axios";
+import AnonymousUserDetails from "../../components/AnonymusUserDetails/AnonymousUserDetails";
+import LoggedUserDetails from "../../components/LoggedUserDetails/LoggedUserDetails";
 
 function ShoeDetailPage() {
-  const { id } = useParams();
-  const [shoeDetail, setShoeDetail] = useState([]);
-  const [updateBrand, setUpdateBrand] = useState("");
-  const [updateModel, setUpdateModel] = useState("");
-  const [updateDate, setUpdateDate] = useState("");
-  const [updatePrice, setUpdatePrice] = useState("");
-  const [updateResell, setUpdateResell] = useState("");
-  const [updateUrl, setUpdateUrl] = useState("");
-
-  useEffect(() => {
-    fetch(`http://localhost:4000/shoes/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setShoeDetail(data);
-        setUpdateBrand(data.brand);
-        setUpdateModel(data.model);
-        setUpdateDate(data.date);
-        setUpdatePrice(data.price);
-        setUpdateResell(data.resell);
-        setUpdateUrl(data.url);
-      })
-      .catch((e) => console.error(e));
-  }, [id]);
-
-  const update = () => {
-    axios({
-      method: "PUT",
-      data: {
-        brand: updateBrand,
-        model: updateModel,
-        date: updateDate,
-        price: updatePrice,
-        resell: updateResell,
-        url: updateUrl,
-      },
-      withCredentials: true,
-      url: `http://localhost:4000/shoes/${id}`,
-    }).then((res) => console.log(res));
-  };
-
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
 
   return (
-    <div className="shoe-detail">
-      <Card>
-        <Container>
-          <Row xs={1} md={2}>
-            <Col>
-              <Card.Img variant="top" src={shoeDetail.url} />
-            </Col>
-            <Col>
-              <Card.Body>
-                <Card.Title>{shoeDetail.model}</Card.Title>
-                <Card.Text>Drop date: {shoeDetail.date}</Card.Text>
-                <Card.Text>{shoeDetail.price} EUR</Card.Text>
-                <Card.Text>
-                  {(() => {
-                    if (shoeDetail.resell === 2) {
-                      return <>Resell value is very high.</>;
-                    } else if (shoeDetail.resell === 1) {
-                      return <>Resell value is high</>;
-                    }
-                  })()}
-                </Card.Text>
-                <Button href="https://www.nike.com/pl/launch" target="_blank" className="shop-button">
-                  Go to shop
-                </Button>
-              </Card.Body>
-            </Col>
-          </Row>
-        </Container>
-        {user.isAdmin && (
-          <div className="form-box">
-            <h1>Update shoe</h1>
-            <Form>
-              <Form.Group className="mb-3" controlId="formGroupUsername">
-                <Form.Control type="text" value={updateBrand} onChange={(e) => setUpdateBrand(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formGroupEmail">
-                <Form.Control type="text" value={updateModel} onChange={(e) => setUpdateModel(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control
-                  type="date"
-                  value={updateDate}
-                  onChange={(e) => setUpdateDate(new Date(e.target.value))}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control type="number" value={updatePrice} onChange={(e) => setUpdatePrice(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control type="text" value={updateResell} onChange={(e) => setUpdateResell(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control type="text" value={updateUrl} onChange={(e) => setUpdateUrl(e.target.value)} />
-              </Form.Group>
-              <Button type="submit" onClick={update}>
-                Update
-              </Button>
-            </Form>
-          </div>
-        )}
-      </Card>
-    </div>
+    <div className="shoe-detail">{user ? <LoggedUserDetails isAdmin={user.isAdmin} /> : <AnonymousUserDetails />}</div>
   );
 }
 

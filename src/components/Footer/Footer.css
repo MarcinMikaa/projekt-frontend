@@ -28,6 +28,10 @@
   margin: 0;
 }
 
+.nav {
+  display: block;
+}
+
 @media (max-width: 768px) {
   .footer .nav-link {
     justify-content: center;

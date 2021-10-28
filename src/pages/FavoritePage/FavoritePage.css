@@ -1,4 +1,105 @@
 .favorite-page {
   text-align: center;
   margin: 5vh 0;
+  min-height: 61vh;
+}
+
+.favorite-page .card {
+  display: flex;
+  padding: 3%;
+}
+
+.favorite-page img {
+  max-width: 500px;
+  width: 100%;
+}
+
+.favorite-page .card-body {
+  text-align: left;
+}
+
+.favorite-page .card-title {
+  font-size: 2em;
+  color: black;
+}
+
+.favorite-page .card-text {
+  font-size: 1.2em;
+  color: black;
+}
+.favorite-page .card-text span {
+  color: rgb(252, 167, 28);
+}
+
+.shoe-container {
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(184, 184, 184);
+}
+
+.favorite-page .shop-button {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(47, 0, 140),
+    rgb(65, 0, 145),
+    rgb(83, 0, 150),
+    rgb(101, 0, 155),
+    rgb(119, 0, 160),
+    rgb(137, 0, 165),
+    rgb(155, 0, 171),
+    rgb(173, 0, 176),
+    rgb(191, 0, 181),
+    rgb(209, 0, 186),
+    rgb(227, 0, 191),
+    rgb(245, 0, 196)
+  );
+  font-weight: 600;
+  font-size: 1.2em;
+  padding: 12px 40px;
+  border: 0;
+  justify-content: left;
+}
+
+.favorite-page .shop-button:hover {
+  box-shadow: 0 0 10px rgb(196, 79, 255);
+}
+
+.form-box {
+  text-align: center;
+}
+
+.delete-from-favorite {
+  display: flex;
+  text-align: right;
+  position: absolute;
+  color: black;
+  cursor: pointer;
+}
+
+.resell {
+  display: flex;
+}
+
+.favorite-page .rocket-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+  margin-right: 10px;
+  border-radius: 90%;
+  background-color: rgb(252, 167, 28);
+  box-shadow: 0 0 15px rgb(252, 167, 28);
+}
+
+.favorite-page .rocket-img img {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 768px) {
+  .favorite-page .card-body {
+    text-align: center;
+  }
 }
