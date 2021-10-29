@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { backendUrl } from "../../config";
 
 function LoginPage() {
   const history = useHistory();
@@ -17,7 +18,7 @@ function LoginPage() {
         password: loginPassword,
       },
       withCredentials: true,
-      url: "http://localhost:4000/login",
+      url: `${backendUrl}/login`,
     }).then((res) => {
       if (res.data._id) {
         localStorage.setItem("user", JSON.stringify(res.data));

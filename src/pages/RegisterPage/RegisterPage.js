@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { backendUrl } from "../../config";
 
 function RegisterPage() {
   const history = useHistory();
@@ -19,7 +20,7 @@ function RegisterPage() {
         password: registerPassword,
       },
       withCredentials: true,
-      url: "http://localhost:4000/register",
+      url: `${backendUrl}/register`,
     }).then((res) => {
       if (res.data.message === "User Created") {
         history.push("/login");

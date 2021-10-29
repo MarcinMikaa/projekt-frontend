@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import AdminNav from "../AdminNav/AdminNav";
 import axios from "axios";
 import { useEffect } from "react";
+import { backendUrl } from "../../config";
 
 function LoggedUserNav() {
   const history = useHistory();
@@ -11,7 +12,7 @@ function LoggedUserNav() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:4000/user",
+      url: `${backendUrl}/user`,
     }).then((res) => {
       localStorage.setItem("role", res.data.isAdmin);
       localStorage.setItem("username", res.data.username);
@@ -22,7 +23,7 @@ function LoggedUserNav() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:4000/logout",
+      url: `${backendUrl}/logout`,
     }).then((res) => {
       localStorage.clear();
       history.push("/");

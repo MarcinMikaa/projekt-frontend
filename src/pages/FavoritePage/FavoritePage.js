@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import rocket from "../../images/rocket.svg";
+import { backendUrl } from "../../config";
 
 function FavoritePage() {
   const [shoeDetail, setShoeDetail] = useState([]);
@@ -11,7 +12,7 @@ function FavoritePage() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:4000/shoes/favorites",
+      url: `${backendUrl}/favorites`,
     }).then((res) => {
       setShoeDetail(res.data);
     });

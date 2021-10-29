@@ -5,6 +5,7 @@ import ShoeCard from "../../components/ShoeCard/ShoeCard";
 import baner from "../../images/baner.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { backendUrl } from "../../config";
 
 function MainPage() {
   const [shoes, setShoes] = useState([]);
@@ -14,7 +15,7 @@ function MainPage() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:4000/shoes",
+      url: `${backendUrl}/shoes`,
     }).then((res) => {
       setShoes(res.data);
     });

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import AdminDetails from "../../components/AdminDetails/AdminDetails";
 import rocket from "../../images/rocket.svg";
+import { backendUrl } from "../../config";
 
 function LoggedUserDetails() {
   const { id } = useParams();
@@ -11,7 +12,7 @@ function LoggedUserDetails() {
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
 
   useEffect(() => {
-    fetch(`http://localhost:4000/shoes/${id}`)
+    fetch(`${backendUrl}/shoes/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setShoeDetail(data);

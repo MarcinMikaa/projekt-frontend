@@ -3,6 +3,7 @@ import { Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import rocket from "../../images/rocket.svg";
+import { backendUrl } from "../../config";
 
 function ShoeCard({ id, url, resell, model, price }) {
   const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
@@ -11,7 +12,7 @@ function ShoeCard({ id, url, resell, model, price }) {
     axios({
       method: "PATCH",
       withCredentials: true,
-      url: `http://localhost:4000/shoes/${id}/favorites`,
+      url: `${backendUrl}/shoes/${id}/favorites`,
     }).then((res) => {});
   };
 

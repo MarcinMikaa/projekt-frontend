@@ -2,13 +2,14 @@ import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import rocket from "../../images/rocket.svg";
+import { backendUrl } from "../../config";
 
 function AnonymousUserDetails() {
   const { id } = useParams();
   const [shoeDetail, setShoeDetail] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/shoes/${id}`)
+    fetch(`${backendUrl}/shoes/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setShoeDetail(data);

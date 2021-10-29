@@ -2,6 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import { backendUrl } from "../../config";
 
 function AdminDetails() {
   const { id } = useParams();
@@ -13,7 +14,7 @@ function AdminDetails() {
   const [updateUrl, setUpdateUrl] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:4000/shoes/${id}`)
+    fetch(`${backendUrl}/shoes/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setUpdateBrand(data.brand);
@@ -38,7 +39,7 @@ function AdminDetails() {
         url: updateUrl,
       },
       withCredentials: true,
-      url: `http://localhost:4000/shoes/${id}`,
+      url: `${backendUrl}/shoes/${id}`,
     }).then((res) => console.log(res));
   };
 
