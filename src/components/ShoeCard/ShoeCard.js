@@ -22,13 +22,13 @@ function ShoeCard({ id, url, resell, model, price }) {
         <div className="shoe-card-header">
           <div className="resell">
             {(() => {
-              if (resell === 2) {
+              if (resell === 1) {
                 return (
                   <div className="rocket-img">
                     <img src={rocket} alt="rocket"></img>
                   </div>
                 );
-              } else if (resell === 1) {
+              } else if (resell === 2) {
                 return (
                   <>
                     <div className="rocket-img">
