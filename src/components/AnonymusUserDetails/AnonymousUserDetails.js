@@ -19,7 +19,7 @@ function AnonymousUserDetails() {
 
   const formatDate = useCallback((shoe) => {
     try {
-      return new Intl.DateTimeFormat("pl-PL").format(new Date(shoe.data).getTime());
+      return new Intl.DateTimeFormat("pl-PL").format(new Date(shoe.date).getTime());
     } catch (e) {
       return shoe?.date;
     }
