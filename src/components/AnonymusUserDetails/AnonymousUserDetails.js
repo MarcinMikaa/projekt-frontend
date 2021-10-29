@@ -1,5 +1,5 @@
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import rocket from "../../images/rocket.svg";
 import { backendUrl } from "../../config";
@@ -17,6 +17,14 @@ function AnonymousUserDetails() {
       .catch((e) => console.error(e));
   }, [id]);
 
+  const formatDate = useCallback((shoe) => {
+    try {
+      return new Intl.DateTimeFormat("pl-PL").format(new Date(shoe.data).getTime());
+    } catch (e) {
+      return shoe?.date;
+    }
+  }, []);
+
   return (
     <div className="shoe-detail shoe-detail-anonymous">
       <Card>
@@ -28,7 +36,7 @@ function AnonymousUserDetails() {
             <Col>
               <Card.Body>
                 <Card.Title>{shoeDetail.model}</Card.Title>
-                <Card.Text>{shoeDetail.date}</Card.Text>
+                <Card.Text>{formatDate(shoeDetail)}</Card.Text>
                 <Card.Text>{shoeDetail.price} EUR</Card.Text>
                 <Card.Text>
                   {(() => {
