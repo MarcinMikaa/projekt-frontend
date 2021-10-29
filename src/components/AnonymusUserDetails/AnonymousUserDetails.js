@@ -36,7 +36,7 @@ function AnonymousUserDetails() {
             <Col>
               <Card.Body>
                 <Card.Title>{shoeDetail.model}</Card.Title>
-                <Card.Text>{formatDate(shoeDetail)}</Card.Text>
+                <Card.Text>Drop date: {formatDate(shoeDetail)}</Card.Text>
                 <Card.Text>{shoeDetail.price} EUR</Card.Text>
                 <Card.Text>
                   {(() => {

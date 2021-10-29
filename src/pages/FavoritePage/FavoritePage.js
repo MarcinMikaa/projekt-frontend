@@ -1,5 +1,5 @@
 import "./FavoritePage.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import rocket from "../../images/rocket.svg";
@@ -18,6 +18,14 @@ function FavoritePage() {
     });
   }, []);
 
+  const formatDate = useCallback((shoe) => {
+    try {
+      return new Intl.DateTimeFormat("pl-PL").format(new Date(shoe.date).getTime());
+    } catch (e) {
+      return shoe?.date;
+    }
+  }, []);
+
   return (
     <div className="favorite-page">
       <Container className="page-container">
@@ -32,7 +40,7 @@ function FavoritePage() {
               <Col>
                 <Card.Body>
                   <Card.Title>{shoeDetail.model}</Card.Title>
-                  <Card.Text>Drop date: {shoeDetail.date}</Card.Text>
+                  <Card.Text>Drop date: {formatDate(shoeDetail)}</Card.Text>
                   <Card.Text>{shoeDetail.price} EUR</Card.Text>
                   <Card.Text>
                     {(() => {

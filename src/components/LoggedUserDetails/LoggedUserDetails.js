@@ -1,5 +1,5 @@
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import AdminDetails from "../../components/AdminDetails/AdminDetails";
 import rocket from "../../images/rocket.svg";
@@ -20,6 +20,14 @@ function LoggedUserDetails() {
       .catch((e) => console.error(e));
   }, [id]);
 
+  const formatDate = useCallback((shoe) => {
+    try {
+      return new Intl.DateTimeFormat("pl-PL").format(new Date(shoe.date).getTime());
+    } catch (e) {
+      return shoe?.date;
+    }
+  }, []);
+
   return (
     <div className="shoe-detail">
       <Card>
@@ -31,7 +39,7 @@ function LoggedUserDetails() {
             <Col>
               <Card.Body>
                 <Card.Title>{shoeDetail.model}</Card.Title>
-                <Card.Text>Drop date: {shoeDetail.date}</Card.Text>
+                <Card.Text>Drop date: {formatDate(shoeDetail)}</Card.Text>
                 <Card.Text>{shoeDetail.price} EUR</Card.Text>
                 <Card.Text>
                   {(() => {
