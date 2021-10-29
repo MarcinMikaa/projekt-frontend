@@ -12,7 +12,7 @@ function FavoritePage() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: `${backendUrl}/favorites`,
+      url: `${backendUrl}/shoes/favorites`,
     }).then((res) => {
       setShoeDetail(res.data);
     });
