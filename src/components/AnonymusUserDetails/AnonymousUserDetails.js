@@ -40,7 +40,7 @@ function AnonymousUserDetails() {
                 <Card.Text>{shoeDetail.price} EUR</Card.Text>
                 <Card.Text>
                   {(() => {
-                    if (shoeDetail.resell === 2) {
+                    if (shoeDetail.resell === 1) {
                       return (
                         <>
                           <div className="rocket-img">
@@ -49,7 +49,7 @@ function AnonymousUserDetails() {
                           <span>Resell value is high</span>
                         </>
                       );
-                    } else if (shoeDetail.resell === 1) {
+                    } else if (shoeDetail.resell === 2) {
                       return (
                         <>
                           <div className="resell">
